@@ -11,9 +11,9 @@ Copyright:	BSD
 Group:		Libraries
 Group(pl):	Biblioteki
 Source:		ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
+Prereq:         filesystem
+Exclusivearch:  sparc %{ix86}
 Buildroot:	/tmp/%{name}-%{version}-root
-Prereq:		filesystem
-Exclusivearch:	sparc i386 i486 i586 i686
 
 %description
 This package contains the shared library configuration tool, ldconfig, which
@@ -65,8 +65,8 @@ echo .so dlopen.3 > $RPM_BUILD_ROOT%{_mandir}/man3/dlclose.3
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man[138]/*
 gzip -9nf README
 
-%post 
-/sbin/ldconfig
+%post 	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
