@@ -8,7 +8,7 @@ Version:	1.9.9
 Release:	10
 License:	BSD
 Group:		Libraries
-Source0:	ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
+Source0:	ftp://sunsite.unc.edu/pub/Linux/GCC/%{name}-%{version}.tar.gz
 Patch0:		%{name}-install.patch
 Prereq:		basesystem
 Exclusivearch:	sparc %{ix86}
