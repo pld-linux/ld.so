@@ -11,7 +11,7 @@ Copyright:	BSD
 Group:		Libraries
 Group(pl):	Biblioteki
 Source:		ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
-Prereq:		FHS
+Prereq:		basesystem
 Exclusivearch:  sparc %{ix86}
 Buildroot:	/tmp/%{name}-%{version}-root
 
