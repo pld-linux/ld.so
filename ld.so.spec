@@ -8,10 +8,15 @@ Version:	1.9.9
 Release:	8
 License:	BSD
 Group:		Libraries
+Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	âÉÂÌÉÏÔÅËÉ
+Group(uk):	â¦ÂÌ¦ÏÔÅËÉ
 Source0:	ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
-Patch0:		ld.so-install.patch
+Patch0:		%{name}-install.patch
 Prereq:		basesystem
 Exclusivearch:	sparc %{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -20,12 +25,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This package contains the shared library configuration tool, ldconfig,
-which is required by many packages. It also includes the shared library
-loader and dynamic loader for Linux libc 5.
+which is required by many packages. It also includes the shared
+library loader and dynamic loader for Linux libc 5.
 
 %description -l pl
-W pakiecie znajduj± siê narzêdzia do konfiguracji bibliotek dynamicznych
-libc5 oraz stary loader dynamiczny - równie¿ pod libc5.
+W pakiecie znajduj± siê narzêdzia do konfiguracji bibliotek
+dynamicznych libc5 oraz stary loader dynamiczny - równie¿ pod libc5.
 
 %description -l de
 Dieses Paket enthält das Shared-Library-Konfigurations-Tool, ldconfig,
@@ -34,13 +39,14 @@ Shared-Library- Loader und den dynamischen Loader für Linux libc 5.
 
 %description -l fr
 Ce package contient l'utilitaire de configuration pour les librairies
-dynamiques, ldconfig, requis par de nombreux packages. Il contient aussi le
-chargeur pour les libraries partagées et dynamiques de la libc 5.
+dynamiques, ldconfig, requis par de nombreux packages. Il contient
+aussi le chargeur pour les libraries partagées et dynamiques de la
+libc 5.
 
 %description -l tr
 Bu paket, pek çok paketin gereksinim duyduðu ortak kitaplýklarý
-yapýlandýrma aracýný ve libc-5 için ortak kitaplýk dinamik yükleyicisini
-içerir.
+yapýlandýrma aracýný ve libc-5 için ortak kitaplýk dinamik
+yükleyicisini içerir.
 
 %prep
 %setup -q
@@ -57,17 +63,17 @@ MANDIR=%{_mandir} \
 LIBDIR=%{_libdir} \
 sh instldso.sh --force
 
-gzip -9nf README $RPM_BUILD_ROOT%{_mandir}/man8/ld.so.8
-
-%post 	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+gzip -9nf README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post 	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc README.gz
 
 %attr(755,root,root) %{_libdir}/*
-%{_mandir}/man*/*.gz
+%{_mandir}/man*/*
