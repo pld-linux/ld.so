@@ -13,7 +13,7 @@ Group(pl):	Biblioteki
 Source:		ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
 Prereq:		basesystem
 Exclusivearch:  sparc %{ix86}
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This package contains the shared library configuration tool, ldconfig, which
