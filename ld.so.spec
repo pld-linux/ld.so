@@ -1,42 +1,44 @@
 Summary:	Shared library configuration tool and old dynamic loader
 Summary(pl):	Stary loader dynamiczny - do uruchamiania programów z libc5 
 Summary(de):	Der alter dynamischer Loader fuer libc5
-Summary(fr):	Outil de configuration de la bibliothèque partagée et \
-Summary(fr):	ancien chargeur dynamique
+Summary(fr):	Outil de configuration de la bibliothèque partagée et ancien chargeur dynamique
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
 Release:	7
-Copyright:	BSD
+License:	BSD
 Group:		Libraries
+Group(fr):	Librairies
 Group(pl):	Biblioteki
-Source:		ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
+Source0:	ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
 Prereq:		basesystem
-Exclusivearch:  sparc %{ix86}
+Exclusivearch:	sparc %{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This package contains the shared library configuration tool, ldconfig, which
-is required by many packages. It also includes the shared library loader
-and dynamic loader for Linux libc 5.
+This package contains the shared library configuration tool, ldconfig,
+which is required by many packages. It also includes the shared
+library loader and dynamic loader for Linux libc 5.
 
 %description -l pl
-W pakiecie znajduj± siê narzêdzia do konfiguracji bibliotek dynamicznych libc5
-oraz stary loader dynamiczny - równie¿ pod libc5.
+W pakiecie znajduj± siê narzêdzia do konfiguracji bibliotek
+dynamicznych libc5 oraz stary loader dynamiczny - równie¿ pod libc5.
 
 %description -l de
-Dieses Paket enthält das Shared-Library-Konfigurations-Tool, ldconfig, 
-welches für viele Pakete notwendig ist. Es enthält außerdem den Shared-Library-
-Loader und den dynamischen Loader für Linux libc 5.
+Dieses Paket enthält das Shared-Library-Konfigurations-Tool, ldconfig,
+welches für viele Pakete notwendig ist. Es enthält außerdem den
+Shared-Library- Loader und den dynamischen Loader für Linux libc 5.
 
 %description -l fr
 Ce package contient l'utilitaire de configuration pour les librairies
-dynamiques, ldconfig, requis par de nombreux packages. Il contient aussi
-le chargeur pour les libraries partagées et dynamiques de la libc 5.
+dynamiques, ldconfig, requis par de nombreux packages. Il contient
+aussi le chargeur pour les libraries partagées et dynamiques de la
+libc 5.
 
 %description -l tr
-Bu paket, pek çok paketin gereksinim duyduðu ortak kitaplýklarý yapýlandýrma
-aracýný ve libc-5 için ortak kitaplýk dinamik yükleyicisini içerir.
+Bu paket, pek çok paketin gereksinim duyduðu ortak kitaplýklarý
+yapýlandýrma aracýný ve libc-5 için ortak kitaplýk dinamik
+yükleyicisini içerir.
 
 %prep
 %setup -q
@@ -62,8 +64,8 @@ echo .so dlopen.3 > $RPM_BUILD_ROOT%{_mandir}/man3/dlsym.3
 echo .so dlopen.3 > $RPM_BUILD_ROOT%{_mandir}/man3/dlerror.3
 echo .so dlopen.3 > $RPM_BUILD_ROOT%{_mandir}/man3/dlclose.3
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man[138]/*
-gzip -9nf README
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man[138]/* \
+	README
 
 %post 	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
