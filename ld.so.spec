@@ -9,6 +9,7 @@ Release:	10
 License:	BSD
 Group:		Libraries
 Source0:	ftp://sunsite.unc.edu/pub/Linux/GCC/%{name}-%{version}.tar.gz
+# Source0-md5:	02ac850a6a267feed265fc74ded068b7
 Patch0:		%{name}-install.patch
 Prereq:		basesystem
 Exclusivearch:	sparc %{ix86}
