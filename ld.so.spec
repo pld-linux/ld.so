@@ -51,7 +51,7 @@ install -d $RPM_BUILD_ROOT/{sbin,usr/man/{man3,man8}}
 
 PREFIX=$RPM_BUILD_ROOT sh instldso.sh --force
 
-rm -f $RPM_BUILD_ROOT/usr/bin/ldd $RPM_BUILD_ROOT/sbin/ldconfig
+rm -f $RPM_BUILD_ROOT%{_bindir}/ldd $RPM_BUILD_ROOT/sbin/ldconfig
 rm -f $RPM_BUILD_ROOT%{_infodir}/ld.so.info
 rm -f $RPM_BUILD_ROOT%{_mandir}/man8/ldconfig.8
 
