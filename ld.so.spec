@@ -7,14 +7,14 @@ Summary(pt_BR):	Carregador dinâmico Linux
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
-Release:	12
+Release:	13
 License:	BSD
 Group:		Libraries
 Source0:	ftp://sunsite.unc.edu/pub/Linux/GCC/%{name}-%{version}.tar.gz
 # Source0-md5:	02ac850a6a267feed265fc74ded068b7
 Patch0:		%{name}-install.patch
 Prereq:		basesystem
-ExclusiveArch:	sparc %{ix86}
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libdir		/lib
