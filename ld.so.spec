@@ -80,24 +80,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /lib/lib*
 
 %{_mandir}/man[138]/*
-
-%changelog
-* Mon Jun 07 1999 Jan Rêkorajski <baggins@pld.org.pl>
-  [1.9.9-6]
-- spec cleanup
-
-* Fri Mar 12 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [1.9.9-5]
-- gzipping documentation (instead bzipping)
-- removed man group from man pages
-
-* Tue Oct 06 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [1.9.9-1]
-- translation modified for pl, 
-- fixed files permissions,
-- updated to ld.so-1.9.9,
-- major changes of the spec file.
-
-* Mon Jun 29 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [1.9.5-9]
-- build for PLD.
