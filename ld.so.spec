@@ -6,7 +6,7 @@ Summary(fr):	ancien chargeur dynamique
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
-Release:	6
+Release:	7
 Copyright:	BSD
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -47,7 +47,7 @@ aracýný ve libc-5 için ortak kitaplýk dinamik yükleyicisini içerir.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{sbin,usr/man/{man3,man8}}
+install -d $RPM_BUILD_ROOT/{sbin,%{_mandir}/man{3,8}}
 
 PREFIX=$RPM_BUILD_ROOT sh instldso.sh --force
 
