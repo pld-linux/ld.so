@@ -52,17 +52,17 @@ install -d $RPM_BUILD_ROOT/{sbin,usr/man/{man3,man8}}
 PREFIX=$RPM_BUILD_ROOT sh instldso.sh --force
 
 rm -f $RPM_BUILD_ROOT/usr/bin/ldd $RPM_BUILD_ROOT/sbin/ldconfig
-rm -f $RPM_BUILD_ROOT/usr/info/ld.so.info
-rm -f $RPM_BUILD_ROOT/usr/man/man8/ldconfig.8
+rm -f $RPM_BUILD_ROOT%{_infodir}/ld.so.info
+rm -f $RPM_BUILD_ROOT%{_mandir}/man8/ldconfig.8
 
 # ideally, these would come from GNU libc, but this is the best we can do
-install man/dlopen.3 $RPM_BUILD_ROOT/usr/man/man3
+install man/dlopen.3 $RPM_BUILD_ROOT%{_mandir}/man3
 
-echo .so dlopen.3 > $RPM_BUILD_ROOT/usr/man/man3/dlsym.3
-echo .so dlopen.3 > $RPM_BUILD_ROOT/usr/man/man3/dlerror.3
-echo .so dlopen.3 > $RPM_BUILD_ROOT/usr/man/man3/dlclose.3
+echo .so dlopen.3 > $RPM_BUILD_ROOT%{_mandir}/man3/dlsym.3
+echo .so dlopen.3 > $RPM_BUILD_ROOT%{_mandir}/man3/dlerror.3
+echo .so dlopen.3 > $RPM_BUILD_ROOT%{_mandir}/man3/dlclose.3
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man[138]/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man[138]/*
 gzip -9nf README
 
 %post 
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /lib/ld-*
 %attr(755,root,root) /lib/lib*
 
-/usr/man/man[138]/*
+%{_mandir}/man[138]/*
 
 %changelog
 * Fri Mar 12 1999 Micha³ Kuratczyk <kura@pld.org.pl>
