@@ -1,5 +1,5 @@
 Summary:	Shared library configuration tool and old dynamic loader
-Summary(pl):	Stary loader dynamiczny - do uruchamiania programów z libc5 
+Summary(pl):	Stary loader dynamiczny - do uruchamiania programów z libc5
 Summary(de):	Der alter dynamischer Loader fuer libc5
 Summary(fr):	Outil de configuration de la bibliothèque partagée et ancien chargeur dynamique
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
