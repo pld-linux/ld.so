@@ -62,7 +62,7 @@ yükleyicisini içerir.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/%{_libdir}
+install -d $RPM_BUILD_ROOT%{_libdir}
 
 PREFIX=$RPM_BUILD_ROOT \
 MANDIR=%{_mandir} \
