@@ -6,14 +6,14 @@ Summary(fr):	ancien chargeur dynamique
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
-Release:	5
+Release:	6
 Copyright:	BSD
 Group:		Libraries
 Group(pl):	Biblioteki
 Source:		ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
 Buildroot:	/tmp/%{name}-%{version}-root
 Prereq:		filesystem
-Exclusivearch:	sparc i386
+Exclusivearch:	sparc i386 i486 i586 i686
 
 %description
 This package contains the shared library configuration tool, ldconfig, which
@@ -82,6 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man[138]/*
 
 %changelog
+* Mon Jun 07 1999 Jan Rêkorajski <baggins@pld.org.pl>
+  [1.9.9-6]
+- spec cleanup
+
 * Fri Mar 12 1999 Micha³ Kuratczyk <kura@pld.org.pl>
   [1.9.9-5]
 - gzipping documentation (instead bzipping)
