@@ -1,0 +1,132 @@
+diff -Naur ld.so-1.9.9/instldso.sh ld.so-1.9.9-p/instldso.sh
+--- ld.so-1.9.9/instldso.sh	Sun Apr 26 20:52:44 1998
++++ ld.so-1.9.9-p/instldso.sh	Fri Jun  9 18:13:05 2000
+@@ -1,5 +1,12 @@
+ #!/bin/sh
+ 
++[ -z "$MANDIR" ] && MANDIR=/usr/share/man
++[ -z "$LIBDIR" ] && LIBDIR=/lib
++[ -z "$INFODIR" ] && INFODIR=/usr/share/info
++[ -z "$SBINDIR" ] && SBINDIR=/sbin
++[ -z "$BINDIR" ] && BINDIR=/bin
++[ -z "$SYSCONFDIR" ] && SYSCONFDIR=/etc
++
+ umask 022
+ 
+ force=false
+@@ -35,14 +42,13 @@
+        PREFIX=
+ fi
+ 
+-install -d -m 755 $PREFIX/etc
+-install -d -m 755 $PREFIX/sbin
+-install -d -m 755 $PREFIX/lib
+-install -d -m 755 $PREFIX/usr/bin
+-install -d -m 755 $PREFIX/usr/lib
+-install -d -m 755 $PREFIX/usr/man/man1
+-install -d -m 755 $PREFIX/usr/man/man8
+-#install -d -m 755 $PREFIX/usr/info
++install -d -m 755 $PREFIX$SYSCONFDIR
++install -d -m 755 $PREFIX$SBINDIR
++install -d -m 755 $PREFIX$BINDIR
++install -d -m 755 $PREFIX$LIBDIR
++install -d -m 755 $PREFIX$MANDIR/man1
++install -d -m 755 $PREFIX$MANDIR/man8
++install -d -m 755 $PREFIX$INFODIR
+ if [ $devfiles = true ] ; then
+     install -d -m 755 $PREFIX/usr/include
+     install -d -m 755 $PREFIX/usr/man/man3
+@@ -53,57 +59,57 @@
+ #	rm -f /etc/ld.so.cache
+ #fi
+ 
+-if [ ! -f $PREFIX/etc/ld.so.conf ] ; then
+-	echo Creating new /etc/ld.so.conf
+-	for dir in /usr/local/lib /usr/X11R6/lib /usr/openwin/lib ; do
+-		if [ -d $PREFIX$dir ] ; then
+-			echo $dir >> $PREFIX/etc/ld.so.conf
+-		fi
+-	done
+-fi
++#if [ ! -f $PREFIX/etc/ld.so.conf ] ; then
++#	echo Creating new /etc/ld.so.conf
++#	for dir in /usr/local/lib /usr/X11R6/lib /usr/openwin/lib ; do
++#		if [ -d $PREFIX$dir ] ; then
++#			echo $dir >> $PREFIX/etc/ld.so.conf
++#		fi
++#	done
++#fi
+ 
+ if [ -f ld-so/ld.so ] ; then
+ 	echo Installing ld.so
+-	install $STRIP ld-so/ld.so $PREFIX/lib/ld.so.$VERSION
+-	mv -f $PREFIX/lib/ld.so.$VERSION $PREFIX/lib/ld.so
+-	ln -f $PREFIX/lib/ld.so $PREFIX/lib/ld.so.$VERSION
++	install $STRIP ld-so/ld.so $PREFIX$LIBDIR/ld.so.$VERSION
++	mv -f $PREFIX$LIBDIR/ld.so.$VERSION $PREFIX$LIBDIR/ld.so
++	ln -f $PREFIX$LIBDIR/lib/ld.so $PREFIX$LIBDIR/ld.so.$VERSION
+ else
+ 	echo Not installing a.out support
+ fi
+ 
+ echo Installing ld-linux.so
+-install d-link/ld-linux.so $PREFIX/lib/ld-linux.so.$VERSION
++install d-link/ld-linux.so $PREFIX$LIBDIR/ld-linux.so.$VERSION
+ if [ -n "$STRIP" ] ; then
+-    strip -g -K _dl_debug_state $PREFIX/lib/ld-linux.so.$VERSION
++    strip --strip-unneeded $PREFIX$LIBDIR/ld-linux.so.$VERSION
+ fi
+-ln -sf ld-linux.so.$VERSION $PREFIX/lib/ld-linux.so.$VMAJOR
++ln -sf ld-linux.so.$VERSION $PREFIX$LIBDIR/ld-linux.so.$VMAJOR
+ 
+ echo Installing libdl.so
+-install $STRIP d-link/libdl/libdl.so $PREFIX/lib/libdl.so.$VERSION
+-if [ $devfiles = true ] ; then
+-    ln -sf /lib/libdl.so.$VERSION $PREFIX/usr/lib/libdl.so
+-    install -m 644 d-link/libdl/dlfcn.h $PREFIX/usr/include/dlfcn.h
+-fi
++install $STRIP d-link/libdl/libdl.so $PREFIX$LIBDIR/libdl.so.$VERSION
++#if [ $devfiles = true ] ; then
++#    ln -sf /lib/libdl.so.$VERSION $PREFIX/usr/lib/libdl.so
++#    install -m 644 d-link/libdl/dlfcn.h $PREFIX/usr/include/dlfcn.h
++#fi
+ 
+-echo Installing ldd
+-install $STRIP util/ldd $PREFIX/usr/bin
+-echo Installing lddstub
+-install $STRIP util/lddstub $PREFIX/usr/lib/lddstub
+-
+-echo Installing and running ldconfig
+-install $STRIP util/ldconfig $PREFIX/sbin
+-$PREFIX/sbin/ldconfig
++#echo Installing ldd
++#install $STRIP util/ldd $PREFIX/usr/bin
++#echo Installing lddstub
++#install $STRIP util/lddstub $PREFIX/usr/lib/lddstub
++#
++#echo Installing and running ldconfig
++#install $STRIP util/ldconfig $PREFIX/sbin
++#$PREFIX/sbin/ldconfig
+ 
+ echo Installing manual and info pages
+-install -m 644 man/ldd.1 $PREFIX/usr/man/man1
+-install -m 644 man/ldconfig.8 man/ld.so.8 $PREFIX/usr/man/man8
++install -m 644 man/ldd.1 $PREFIX$MANDIR/man1
++install -m 644 man/ldconfig.8 man/ld.so.8 $PREFIX$MANDIR/man8
+ #install -m 644 man/ld.so.info $PREFIX/usr/info
+-if [ $devfiles = true ] ; then
+-    install -m 644 man/dlopen.3 $PREFIX/usr/man/man3
+-    ln -sf dlopen.3 $PREFIX/usr/man/man3/dlsym.3
+-    ln -sf dlopen.3 $PREFIX/usr/man/man3/dladdr.3
+-    ln -sf dlopen.3 $PREFIX/usr/man/man3/dlerror.3
+-    ln -sf dlopen.3 $PREFIX/usr/man/man3/dlclose.3
+-fi
++#if [ $devfiles = true ] ; then
++#    install -m 644 man/dlopen.3 $PREFIX/usr/man/man3
++#    ln -sf dlopen.3 $PREFIX/usr/man/man3/dlsym.3
++#    ln -sf dlopen.3 $PREFIX/usr/man/man3/dladdr.3
++#    ln -sf dlopen.3 $PREFIX/usr/man/man3/dlerror.3
++#    ln -sf dlopen.3 $PREFIX/usr/man/man3/dlclose.3
++#fi
+ 
+ echo Installation complete
