@@ -6,7 +6,7 @@ Summary(fr):	ancien chargeur dynamique
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
-Release:	4d
+Release:	5
 Copyright:	BSD
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -22,7 +22,7 @@ and dynamic loader for Linux libc 5.
 
 %description -l pl
 W pakiecie znajduj± siê narzêdzia do konfiguracji bibliotek dynamicznych libc5
-oraz stary loader dunamiczny - równie¿ pod libc5.
+oraz stary loader dynamiczny - równie¿ pod libc5.
 
 %description -l de
 Dieses Paket enthält das Shared-Library-Konfigurations-Tool, ldconfig, 
@@ -62,8 +62,8 @@ echo .so dlopen.3 > $RPM_BUILD_ROOT/usr/man/man3/dlsym.3
 echo .so dlopen.3 > $RPM_BUILD_ROOT/usr/man/man3/dlerror.3
 echo .so dlopen.3 > $RPM_BUILD_ROOT/usr/man/man3/dlclose.3
 
-gzip -9fn $RPM_BUILD_ROOT/usr/man/man[138]/*
-bzip2 -9 README
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man[138]/*
+gzip -9nf README
 
 %post 
 /sbin/ldconfig
@@ -73,17 +73,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.bz2
+%doc README.gz
 
 %attr(755,root,root) /lib/ld.*
 %attr(755,root,root) /lib/ld-*
 %attr(755,root,root) /lib/lib*
 
-%attr(644,root, man)  /usr/man/man[138]/*
+/usr/man/man[138]/*
 
 %changelog
+* Fri Mar 12 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+  [1.9.9-5]
+- gzipping documentation (instead bzipping)
+- removed man group from man pages
+
 * Tue Oct 06 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [1.9.9-1d]
+  [1.9.9-1]
 - translation modified for pl, 
 - fixed files permissions,
 - updated to ld.so-1.9.9,
