@@ -5,11 +5,10 @@ Summary(fr):	Outil de configuration de la bibliothèque partagée et ancien charge
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
-Release:	9
+Release:	10
 License:	BSD
 Group:		Libraries
 Source0:	ftp://sunsite.unc.edu:/pub/Linux/GCC/%{name}-%{version}.tar.gz
-Source1:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-install.patch
 Prereq:		basesystem
 Exclusivearch:	sparc %{ix86}
@@ -50,14 +49,12 @@ yükleyicisini içerir.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{%{_libdir},%{_mandir}/man8}
+install -d $RPM_BUILD_ROOT/%{_libdir}
 
 PREFIX=$RPM_BUILD_ROOT \
 MANDIR=%{_mandir} \
 LIBDIR=%{_libdir} \
 sh instldso.sh --force
-
-bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
 
 gzip -9nf README
 
@@ -70,10 +67,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.gz
-
 %attr(755,root,root) %{_libdir}/*
-%{_mandir}/man8/ld.so*
-%lang(es) %{_mandir}/es/man8/ld.so*
-%lang(hu) %{_mandir}/hu/man8/ld.so*
-%lang(ja) %{_mandir}/ja/man8/ld.so*
-%lang(pl) %{_mandir}/pl/man8/ld.so*
