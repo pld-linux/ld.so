@@ -6,7 +6,7 @@ Summary(fr):	ancien chargeur dynamique
 Summary(tr):	Ortak kitaplýk yapýlandýrma aracý ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
-Release:	2d
+Release:	4d
 Copyright:	BSD
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -53,6 +53,7 @@ PREFIX=$RPM_BUILD_ROOT sh instldso.sh --force
 
 rm -f $RPM_BUILD_ROOT/usr/bin/ldd $RPM_BUILD_ROOT/sbin/ldconfig
 rm -f $RPM_BUILD_ROOT/usr/info/ld.so.info
+rm -f $RPM_BUILD_ROOT/usr/man/man8/ldconfig.8
 
 # ideally, these would come from GNU libc, but this is the best we can do
 install man/dlopen.3 $RPM_BUILD_ROOT/usr/man/man3
