@@ -64,7 +64,7 @@ diff -Naur ld.so-1.9.9/instldso.sh ld.so-1.9.9-p/instldso.sh
 -	ln -f $PREFIX/lib/ld.so $PREFIX/lib/ld.so.$VERSION
 +	install $STRIP ld-so/ld.so $PREFIX$LIBDIR/ld.so.$VERSION
 +	mv -f $PREFIX$LIBDIR/ld.so.$VERSION $PREFIX$LIBDIR/ld.so
-+	ln -f $PREFIX$LIBDIR/lib/ld.so $PREFIX$LIBDIR/ld.so.$VERSION
++	ln -f $PREFIX$LIBDIR/ld.so $PREFIX$LIBDIR/ld.so.$VERSION
  else
  	echo Not installing a.out support
  fi
