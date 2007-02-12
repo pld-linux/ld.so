@@ -1,10 +1,10 @@
 Summary:	Shared library configuration tool and old dynamic loader
-Summary(de):	Der alter dynamischer Loader fuer libc5
-Summary(es):	Cargador dinámico Linux
-Summary(fr):	Outil de configuration de la bibliothèque partagée et ancien chargeur dynamique
-Summary(pl):	Stary loader dynamiczny - do uruchamiania programów z libc5
-Summary(pt_BR):	Carregador dinâmico Linux
-Summary(tr):	Ortak kitaplık yapılandırma aracı ve dinamik yükleyici
+Summary(de.UTF-8):   Der alter dynamischer Loader fuer libc5
+Summary(es.UTF-8):   Cargador dinÃ¡mico Linux
+Summary(fr.UTF-8):   Outil de configuration de la bibliothÃ¨que partagÃ©e et ancien chargeur dynamique
+Summary(pl.UTF-8):   Stary loader dynamiczny - do uruchamiania programÃ³w z libc5
+Summary(pt_BR.UTF-8):   Carregador dinÃ¢mico Linux
+Summary(tr.UTF-8):   Ortak kitaplÄ±k yapÄ±landÄ±rma aracÄ± ve dinamik yÃ¼kleyici
 Name:		ld.so
 Version:	1.9.9
 Release:	13
@@ -24,35 +24,35 @@ This package contains the shared library configuration tool, ldconfig,
 which is required by many packages. It also includes the shared
 library loader and dynamic loader for Linux libc 5.
 
-%description -l de
-Dieses Paket enthält das Shared-Library-Konfigurations-Tool, ldconfig,
-welches für viele Pakete notwendig ist. Es enthält außerdem den
-Shared-Library- Loader und den dynamischen Loader für Linux libc 5.
+%description -l de.UTF-8
+Dieses Paket enthÃ¤lt das Shared-Library-Konfigurations-Tool, ldconfig,
+welches fÃ¼r viele Pakete notwendig ist. Es enthÃ¤lt auÃŸerdem den
+Shared-Library- Loader und den dynamischen Loader fÃ¼r Linux libc 5.
 
-%description -l es
-Este paquete contiene el cargador dinámico para bibliotecas
+%description -l es.UTF-8
+Este paquete contiene el cargador dinÃ¡mico para bibliotecas
 compartidas.  Se requiere para todos los paquetes linkados
-dinámicamente.
+dinÃ¡micamente.
 
-%description -l fr
+%description -l fr.UTF-8
 Ce package contient l'utilitaire de configuration pour les librairies
 dynamiques, ldconfig, requis par de nombreux packages. Il contient
-aussi le chargeur pour les libraries partagées et dynamiques de la
+aussi le chargeur pour les libraries partagÃ©es et dynamiques de la
 libc 5.
 
-%description -l pl
-W pakiecie znajduj± siê narzêdzia do konfiguracji bibliotek
-dynamicznych libc5 oraz stary loader dynamiczny - równie¿ pod libc5.
+%description -l pl.UTF-8
+W pakiecie znajdujÄ… siÄ™ narzÄ™dzia do konfiguracji bibliotek
+dynamicznych libc5 oraz stary loader dynamiczny - rÃ³wnieÅ¼ pod libc5.
 
-%description -l pt_BR
-Este pacote contém o carregador dinâmico para bibliotecas
-compartilhadas. É requerido para todos os pacotes linkados
+%description -l pt_BR.UTF-8
+Este pacote contÃ©m o carregador dinÃ¢mico para bibliotecas
+compartilhadas. Ã‰ requerido para todos os pacotes linkados
 dinamicamente.
 
-%description -l tr
-Bu paket, pek çok paketin gereksinim duyduğu ortak kitaplıkları
-yapılandırma aracını ve libc-5 için ortak kitaplık dinamik
-yükleyicisini içerir.
+%description -l tr.UTF-8
+Bu paket, pek Ã§ok paketin gereksinim duyduÄŸu ortak kitaplÄ±klarÄ±
+yapÄ±landÄ±rma aracÄ±nÄ± ve libc-5 iÃ§in ortak kitaplÄ±k dinamik
+yÃ¼kleyicisini iÃ§erir.
 
 %prep
 %setup -q
