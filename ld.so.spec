@@ -1,10 +1,10 @@
 Summary:	Shared library configuration tool and old dynamic loader
-Summary(de.UTF-8):   Der alter dynamischer Loader fuer libc5
-Summary(es.UTF-8):   Cargador dinámico Linux
-Summary(fr.UTF-8):   Outil de configuration de la bibliothèque partagée et ancien chargeur dynamique
-Summary(pl.UTF-8):   Stary loader dynamiczny - do uruchamiania programów z libc5
-Summary(pt_BR.UTF-8):   Carregador dinâmico Linux
-Summary(tr.UTF-8):   Ortak kitaplık yapılandırma aracı ve dinamik yükleyici
+Summary(de.UTF-8):	Der alter dynamischer Loader fuer libc5
+Summary(es.UTF-8):	Cargador dinámico Linux
+Summary(fr.UTF-8):	Outil de configuration de la bibliothèque partagée et ancien chargeur dynamique
+Summary(pl.UTF-8):	Stary loader dynamiczny - do uruchamiania programów z libc5
+Summary(pt_BR.UTF-8):	Carregador dinâmico Linux
+Summary(tr.UTF-8):	Ortak kitaplık yapılandırma aracı ve dinamik yükleyici
 Name:		ld.so
 Version:	1.9.9
 Release:	13
